@@ -8,7 +8,6 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.content.LocalBroadcastManager;
 
 import timber.log.Timber;
 
@@ -154,7 +153,7 @@ public class LocationServices implements LostApiClient.ConnectionCallbacks,
     // Update the Telemetry Receiver
     Intent locIntent = new Intent(TelemetryLocationReceiver.INTENT_STRING);
     locIntent.putExtra(LocationManager.KEY_LOCATION_CHANGED, location);
-    LocalBroadcastManager.getInstance(context.getApplicationContext()).sendBroadcast(locIntent);
+    context.sendBroadcast(locIntent);
   }
 
   /**

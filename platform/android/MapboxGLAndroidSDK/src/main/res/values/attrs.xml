@@ -114,5 +114,52 @@
         <!-- Deprecated to use TextureView-->
         <attr name="mapbox_renderTextureMode" format="boolean" />
 
+        <!--Scale-->
+        <attr name="mapbox_uiScale" format="boolean" />
+        <attr name="mapbox_uiScaleGravity">
+            <flag name="top" value="0x30" />
+            <flag name="bottom" value="0x50" />
+            <flag name="left" value="0x03" />
+            <flag name="right" value="0x05" />
+            <flag name="center_vertical" value="0x10" />
+            <flag name="fill_vertical" value="0x70" />
+            <flag name="center_horizontal" value="0x01" />
+            <flag name="fill_horizontal" value="0x07" />
+            <flag name="center" value="0x11" />
+            <flag name="fill" value="0x77" />
+            <flag name="clip_vertical" value="0x80" />
+            <flag name="clip_horizontal" value="0x08" />
+            <flag name="start" value="0x00800003" />
+            <flag name="end" value="0x00800005" />
+        </attr>
+        <attr name="mapbox_uiScaleWidth" format="float" />
+        <attr name="mapbox_uiScaleMarginTop" format="dimension" />
+        <attr name="mapbox_uiScaleMarginLeft" format="dimension" />
+        <attr name="mapbox_uiScaleMarginRight" format="dimension" />
+        <attr name="mapbox_uiScaleMarginBottom" format="dimension" />
+
+        <attr name="mapbox_uiScaleEnabled" format="boolean" />
+
+        <attr name="mapbox_uiScaleColor" format="enum">
+            <enum name="black" value="0" />
+            <enum name="white" value="1" />
+        </attr>
+
+        <attr name="mapbox_uiScaleUnit" format="enum">
+            <enum name="km" value="0" />
+            <enum name="mile" value="1" />
+            <enum name="nm" value="2" />
+        </attr>
+
+
+
     </declare-styleable>
+
+    <declare-styleable name="mapbox_MapView_MapScaleView">
+        <attr name="mapbox_uiScale_textSize" format="dimension"/>
+        <attr name="mapbox_uiScale_strokeWidth" format="dimension"/>
+        <attr name="mapbox_uiScale_color" format="color"/>
+    </declare-styleable>
+
+
 </resources>

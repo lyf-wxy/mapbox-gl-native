@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merge xmlns:android="http://schemas.android.com/apk/res/android">
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <SurfaceView
         android:id="@+id/surfaceView"
@@ -22,6 +23,23 @@
         android:id="@+id/compassView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
+    <!--<com.mapbox.mapboxsdk.maps.widgets.ScaleView-->
+        <!--android:id="@+id/scaleView"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_gravity="bottom|right"-->
+        <!--android:layout_height="wrap_content" />-->
+
+    <com.mapbox.mapboxsdk.maps.widgets.scaleview.MapScaleView
+        android:id="@+id/scaleView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        app:mapbox_uiScale_color="#009"
+        app:mapbox_uiScale_strokeWidth="3dp"
+        app:mapbox_uiScale_textSize="20sp"
+        android:layout_margin="4dp"/>
+
 
     <ImageView
         android:id="@+id/logoView"

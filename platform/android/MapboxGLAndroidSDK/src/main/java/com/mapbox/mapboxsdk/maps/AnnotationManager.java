@@ -66,7 +66,7 @@ class AnnotationManager {
   }
 
   void update() {
-    markerViewManager.update();
+    markerViewManager.scheduleViewMarkerInvalidation();
     infoWindowManager.update();
   }
 
@@ -226,7 +226,6 @@ class AnnotationManager {
     if (onMarkerViewAddedListener != null) {
       markerViewManager.addOnMarkerViewAddedListener(marker, onMarkerViewAddedListener);
     }
-    markerViewManager.setEnabled(true);
     markerViewManager.setWaitingForRenderInvoke(true);
     return marker;
   }
@@ -249,8 +248,7 @@ class AnnotationManager {
       annotations.put(id, marker);
       markers.add(marker);
     }
-    markerViewManager.setEnabled(true);
-    markerViewManager.update();
+    markerViewManager.invalidateViewMarkersInVisibleRegion();
     return markers;
   }
 

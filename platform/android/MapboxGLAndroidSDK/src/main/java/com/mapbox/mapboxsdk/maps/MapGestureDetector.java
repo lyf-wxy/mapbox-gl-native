@@ -9,14 +9,12 @@ import android.view.InputDevice;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.view.ViewConfiguration;
-import android.widget.ZoomButtonsController;
 
 import com.almeros.android.multitouch.gesturedetectors.RotateGestureDetector;
 import com.almeros.android.multitouch.gesturedetectors.ShoveGestureDetector;
 import com.almeros.android.multitouch.gesturedetectors.TwoFingerGestureDetector;
 import com.mapbox.mapboxsdk.constants.MapboxConstants;
 import com.mapbox.mapboxsdk.telemetry.MapboxEvent;
-import com.mapbox.mapboxsdk.utils.MathUtils;
 
 /**
  * Manages gestures events on a MapView.
@@ -35,7 +33,7 @@ final class MapGestureDetector {
   private final GestureDetectorCompat gestureDetector;
   private final ScaleGestureDetector scaleGestureDetector;
   private final RotateGestureDetector rotateGestureDetector;
-  private final ShoveGestureDetector shoveGestureDetector;
+//  private final ShoveGestureDetector shoveGestureDetector;
 
   private MapboxMap.OnMapClickListener onMapClickListener;
   private MapboxMap.OnMapLongClickListener onMapLongClickListener;
@@ -64,7 +62,7 @@ final class MapGestureDetector {
     scaleGestureDetector = new ScaleGestureDetector(context, new ScaleGestureListener());
     ScaleGestureDetectorCompat.setQuickScaleEnabled(scaleGestureDetector, true);
     rotateGestureDetector = new RotateGestureDetector(context, new RotateGestureListener());
-    shoveGestureDetector = new ShoveGestureDetector(context, new ShoveGestureListener());
+//    shoveGestureDetector = new ShoveGestureDetector(context, new ShoveGestureListener());
   }
 
   /**
@@ -104,9 +102,9 @@ final class MapGestureDetector {
     }
 
     // Check two finger gestures first
-    rotateGestureDetector.onTouchEvent(event);
-    scaleGestureDetector.onTouchEvent(event);
-    shoveGestureDetector.onTouchEvent(event);
+//    rotateGestureDetector.onTouchEvent(event);
+//    scaleGestureDetector.onTouchEvent(event);
+//    shoveGestureDetector.onTouchEvent(event);
 
     // Handle two finger tap
     switch (event.getActionMasked()) {
@@ -135,8 +133,8 @@ final class MapGestureDetector {
         long tapInterval = event.getEventTime() - event.getDownTime();
         boolean isTap = tapInterval <= ViewConfiguration.getTapTimeout();
         boolean inProgress = rotateGestureDetector.isInProgress()
-          || scaleGestureDetector.isInProgress()
-          || shoveGestureDetector.isInProgress();
+          || scaleGestureDetector.isInProgress();
+//          || shoveGestureDetector.isInProgress();
 
         if (twoTap && isTap && !inProgress) {
           if (focalPoint != null) {
@@ -428,12 +426,8 @@ final class MapGestureDetector {
         // arround user provided focal point
         transform.zoomBy(detector.getScaleFactor(), focalPoint.x, focalPoint.y);
       } else if (quickZoom) {
-        // clamp scale factors we feed to core #7514
-        float scaleFactor = MathUtils.clamp(detector.getScaleFactor(),
-          MapboxConstants.MINIMUM_SCALE_FACTOR_CLAMP,
-          MapboxConstants.MAXIMUM_SCALE_FACTOR_CLAMP);
         // around center map
-        transform.zoomBy(scaleFactor, uiSettings.getWidth() / 2, uiSettings.getHeight() / 2);
+        transform.zoomBy(detector.getScaleFactor(), uiSettings.getWidth() / 2, uiSettings.getHeight() / 2);
       } else {
         // around gesture
         transform.zoomBy(detector.getScaleFactor(), detector.getFocusX(), detector.getFocusY());
@@ -597,7 +591,7 @@ final class MapGestureDetector {
 
   // This class handles input events from the zoom control buttons
   // Zoom controls allow single touch only devices to zoom in and out
-  private static class OnZoomListener implements ZoomButtonsController.OnZoomListener {
+  /*private static class OnZoomListener implements ZoomButtonsController.OnZoomListener {
 
     private UiSettings uiSettings;
     private Transform transform;
@@ -621,7 +615,7 @@ final class MapGestureDetector {
       }
       transform.zoom(zoomIn);
     }
-  }
+  }*/
 
   void setOnMapClickListener(MapboxMap.OnMapClickListener onMapClickListener) {
     this.onMapClickListener = onMapClickListener;

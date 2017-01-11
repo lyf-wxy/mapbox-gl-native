@@ -1,7 +1,5 @@
 package com.mapbox.mapboxsdk.telemetry;
 
-import timber.log.Timber;
-
 import java.io.IOException;
 
 import okhttp3.Interceptor;
@@ -12,6 +10,7 @@ import okhttp3.Response;
 import okio.BufferedSink;
 import okio.GzipSink;
 import okio.Okio;
+import timber.log.Timber;
 
 /**
  * OkHttp Interceptor for Gzipping Telemetry Data requests to the server.
