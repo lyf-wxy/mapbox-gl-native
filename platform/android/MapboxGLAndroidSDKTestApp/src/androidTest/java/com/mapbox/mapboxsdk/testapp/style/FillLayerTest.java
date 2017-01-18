@@ -42,12 +42,6 @@ public class FillLayerTest extends BaseStyleTest {
   public void setup() {
     idlingResource = new OnMapReadyIdlingResource(rule.getActivity());
     Espresso.registerIdlingResources(idlingResource);
-  }
-
-  @Test
-  public void testSetVisibility() {
-    checkViewIsDisplayed(R.id.mapView);
-
     mapboxMap = rule.getActivity().getMapboxMap();
 
     if ((layer = mapboxMap.getLayerAs("my-layer")) == null) {
@@ -58,7 +52,12 @@ public class FillLayerTest extends BaseStyleTest {
       //Layer reference is now stale, get new reference
       layer = mapboxMap.getLayerAs("my-layer");
     }
-    Timber.i("visibility");
+  }
+
+  @Test
+  public void testSetVisibility() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("Visibility");
     assertNotNull(layer);
 
     //Get initial
@@ -72,17 +71,6 @@ public class FillLayerTest extends BaseStyleTest {
   @Test
   public void testFillAntialias() {
     checkViewIsDisplayed(R.id.mapView);
-
-    mapboxMap = rule.getActivity().getMapboxMap();
-
-    if ((layer = mapboxMap.getLayerAs("my-layer")) == null) {
-      Timber.i("Adding layer");
-      layer = new FillLayer("my-layer", "composite");
-      layer.setSourceLayer("composite");
-      mapboxMap.addLayer(layer);
-      //Layer reference is now stale, get new reference
-      layer = mapboxMap.getLayerAs("my-layer");
-    }
     Timber.i("fill-antialias");
     assertNotNull(layer);
 
@@ -94,17 +82,6 @@ public class FillLayerTest extends BaseStyleTest {
   @Test
   public void testFillOpacity() {
     checkViewIsDisplayed(R.id.mapView);
-
-    mapboxMap = rule.getActivity().getMapboxMap();
-
-    if ((layer = mapboxMap.getLayerAs("my-layer")) == null) {
-      Timber.i("Adding layer");
-      layer = new FillLayer("my-layer", "composite");
-      layer.setSourceLayer("composite");
-      mapboxMap.addLayer(layer);
-      //Layer reference is now stale, get new reference
-      layer = mapboxMap.getLayerAs("my-layer");
-    }
     Timber.i("fill-opacity");
     assertNotNull(layer);
 
@@ -116,17 +93,6 @@ public class FillLayerTest extends BaseStyleTest {
   @Test
   public void testFillColor() {
     checkViewIsDisplayed(R.id.mapView);
-
-    mapboxMap = rule.getActivity().getMapboxMap();
-
-    if ((layer = mapboxMap.getLayerAs("my-layer")) == null) {
-      Timber.i("Adding layer");
-      layer = new FillLayer("my-layer", "composite");
-      layer.setSourceLayer("composite");
-      mapboxMap.addLayer(layer);
-      //Layer reference is now stale, get new reference
-      layer = mapboxMap.getLayerAs("my-layer");
-    }
     Timber.i("fill-color");
     assertNotNull(layer);
 
@@ -138,17 +104,6 @@ public class FillLayerTest extends BaseStyleTest {
   @Test
   public void testFillColorAsInt() {
     checkViewIsDisplayed(R.id.mapView);
-
-    mapboxMap = rule.getActivity().getMapboxMap();
-
-    if ((layer = mapboxMap.getLayerAs("my-layer")) == null) {
-      Timber.i("Adding layer");
-      layer = new FillLayer("my-layer", "composite");
-      layer.setSourceLayer("composite");
-      mapboxMap.addLayer(layer);
-      //Layer reference is now stale, get new reference
-      layer = mapboxMap.getLayerAs("my-layer");
-    }
     Timber.i("fill-color");
     assertNotNull(layer);
 
@@ -160,17 +115,6 @@ public class FillLayerTest extends BaseStyleTest {
   @Test
   public void testFillOutlineColor() {
     checkViewIsDisplayed(R.id.mapView);
-
-    mapboxMap = rule.getActivity().getMapboxMap();
-
-    if ((layer = mapboxMap.getLayerAs("my-layer")) == null) {
-      Timber.i("Adding layer");
-      layer = new FillLayer("my-layer", "composite");
-      layer.setSourceLayer("composite");
-      mapboxMap.addLayer(layer);
-      //Layer reference is now stale, get new reference
-      layer = mapboxMap.getLayerAs("my-layer");
-    }
     Timber.i("fill-outline-color");
     assertNotNull(layer);
 
@@ -182,17 +126,6 @@ public class FillLayerTest extends BaseStyleTest {
   @Test
   public void testFillOutlineColorAsInt() {
     checkViewIsDisplayed(R.id.mapView);
-
-    mapboxMap = rule.getActivity().getMapboxMap();
-
-    if ((layer = mapboxMap.getLayerAs("my-layer")) == null) {
-      Timber.i("Adding layer");
-      layer = new FillLayer("my-layer", "composite");
-      layer.setSourceLayer("composite");
-      mapboxMap.addLayer(layer);
-      //Layer reference is now stale, get new reference
-      layer = mapboxMap.getLayerAs("my-layer");
-    }
     Timber.i("fill-outline-color");
     assertNotNull(layer);
 
@@ -204,17 +137,6 @@ public class FillLayerTest extends BaseStyleTest {
   @Test
   public void testFillTranslate() {
     checkViewIsDisplayed(R.id.mapView);
-
-    mapboxMap = rule.getActivity().getMapboxMap();
-
-    if ((layer = mapboxMap.getLayerAs("my-layer")) == null) {
-      Timber.i("Adding layer");
-      layer = new FillLayer("my-layer", "composite");
-      layer.setSourceLayer("composite");
-      mapboxMap.addLayer(layer);
-      //Layer reference is now stale, get new reference
-      layer = mapboxMap.getLayerAs("my-layer");
-    }
     Timber.i("fill-translate");
     assertNotNull(layer);
 
@@ -226,17 +148,6 @@ public class FillLayerTest extends BaseStyleTest {
   @Test
   public void testFillTranslateAnchor() {
     checkViewIsDisplayed(R.id.mapView);
-
-    mapboxMap = rule.getActivity().getMapboxMap();
-
-    if ((layer = mapboxMap.getLayerAs("my-layer")) == null) {
-      Timber.i("Adding layer");
-      layer = new FillLayer("my-layer", "composite");
-      layer.setSourceLayer("composite");
-      mapboxMap.addLayer(layer);
-      //Layer reference is now stale, get new reference
-      layer = mapboxMap.getLayerAs("my-layer");
-    }
     Timber.i("fill-translate-anchor");
     assertNotNull(layer);
 
@@ -248,17 +159,6 @@ public class FillLayerTest extends BaseStyleTest {
   @Test
   public void testFillPattern() {
     checkViewIsDisplayed(R.id.mapView);
-
-    mapboxMap = rule.getActivity().getMapboxMap();
-
-    if ((layer = mapboxMap.getLayerAs("my-layer")) == null) {
-      Timber.i("Adding layer");
-      layer = new FillLayer("my-layer", "composite");
-      layer.setSourceLayer("composite");
-      mapboxMap.addLayer(layer);
-      //Layer reference is now stale, get new reference
-      layer = mapboxMap.getLayerAs("my-layer");
-    }
     Timber.i("fill-pattern");
     assertNotNull(layer);
 

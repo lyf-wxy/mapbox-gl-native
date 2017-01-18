@@ -42,17 +42,16 @@ public class BackgroundLayerTest extends BaseStyleTest {
   public void setup() {
     idlingResource = new OnMapReadyIdlingResource(rule.getActivity());
     Espresso.registerIdlingResources(idlingResource);
+    mapboxMap = rule.getActivity().getMapboxMap();
+
+    Timber.i("Retrieving layer");
+    layer = mapboxMap.getLayerAs("background");
   }
 
   @Test
   public void testSetVisibility() {
     checkViewIsDisplayed(R.id.mapView);
-
-    mapboxMap = rule.getActivity().getMapboxMap();
-
-    Timber.i("Retrieving layer");
-    layer = mapboxMap.getLayerAs("background");
-    Timber.i("visibility");
+    Timber.i("Visibility");
     assertNotNull(layer);
 
     //Get initial
@@ -66,11 +65,6 @@ public class BackgroundLayerTest extends BaseStyleTest {
   @Test
   public void testBackgroundColor() {
     checkViewIsDisplayed(R.id.mapView);
-
-    mapboxMap = rule.getActivity().getMapboxMap();
-
-    Timber.i("Retrieving layer");
-    layer = mapboxMap.getLayerAs("background");
     Timber.i("background-color");
     assertNotNull(layer);
 
@@ -82,11 +76,6 @@ public class BackgroundLayerTest extends BaseStyleTest {
   @Test
   public void testBackgroundColorAsInt() {
     checkViewIsDisplayed(R.id.mapView);
-
-    mapboxMap = rule.getActivity().getMapboxMap();
-
-    Timber.i("Retrieving layer");
-    layer = mapboxMap.getLayerAs("background");
     Timber.i("background-color");
     assertNotNull(layer);
 
@@ -98,11 +87,6 @@ public class BackgroundLayerTest extends BaseStyleTest {
   @Test
   public void testBackgroundPattern() {
     checkViewIsDisplayed(R.id.mapView);
-
-    mapboxMap = rule.getActivity().getMapboxMap();
-
-    Timber.i("Retrieving layer");
-    layer = mapboxMap.getLayerAs("background");
     Timber.i("background-pattern");
     assertNotNull(layer);
 
@@ -114,11 +98,6 @@ public class BackgroundLayerTest extends BaseStyleTest {
   @Test
   public void testBackgroundOpacity() {
     checkViewIsDisplayed(R.id.mapView);
-
-    mapboxMap = rule.getActivity().getMapboxMap();
-
-    Timber.i("Retrieving layer");
-    layer = mapboxMap.getLayerAs("background");
     Timber.i("background-opacity");
     assertNotNull(layer);
 

@@ -42,12 +42,6 @@ public class LineLayerTest extends BaseStyleTest {
   public void setup() {
     idlingResource = new OnMapReadyIdlingResource(rule.getActivity());
     Espresso.registerIdlingResources(idlingResource);
-  }
-
-  @Test
-  public void testSetVisibility() {
-    checkViewIsDisplayed(R.id.mapView);
-
     mapboxMap = rule.getActivity().getMapboxMap();
 
     if ((layer = mapboxMap.getLayerAs("my-layer")) == null) {
@@ -58,7 +52,12 @@ public class LineLayerTest extends BaseStyleTest {
       //Layer reference is now stale, get new reference
       layer = mapboxMap.getLayerAs("my-layer");
     }
-    Timber.i("visibility");
+  }
+
+  @Test
+  public void testSetVisibility() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("Visibility");
     assertNotNull(layer);
 
     //Get initial
@@ -72,17 +71,6 @@ public class LineLayerTest extends BaseStyleTest {
   @Test
   public void testLineCap() {
     checkViewIsDisplayed(R.id.mapView);
-
-    mapboxMap = rule.getActivity().getMapboxMap();
-
-    if ((layer = mapboxMap.getLayerAs("my-layer")) == null) {
-      Timber.i("Adding layer");
-      layer = new LineLayer("my-layer", "composite");
-      layer.setSourceLayer("composite");
-      mapboxMap.addLayer(layer);
-      //Layer reference is now stale, get new reference
-      layer = mapboxMap.getLayerAs("my-layer");
-    }
     Timber.i("line-cap");
     assertNotNull(layer);
 
@@ -94,17 +82,6 @@ public class LineLayerTest extends BaseStyleTest {
   @Test
   public void testLineJoin() {
     checkViewIsDisplayed(R.id.mapView);
-
-    mapboxMap = rule.getActivity().getMapboxMap();
-
-    if ((layer = mapboxMap.getLayerAs("my-layer")) == null) {
-      Timber.i("Adding layer");
-      layer = new LineLayer("my-layer", "composite");
-      layer.setSourceLayer("composite");
-      mapboxMap.addLayer(layer);
-      //Layer reference is now stale, get new reference
-      layer = mapboxMap.getLayerAs("my-layer");
-    }
     Timber.i("line-join");
     assertNotNull(layer);
 
@@ -116,17 +93,6 @@ public class LineLayerTest extends BaseStyleTest {
   @Test
   public void testLineMiterLimit() {
     checkViewIsDisplayed(R.id.mapView);
-
-    mapboxMap = rule.getActivity().getMapboxMap();
-
-    if ((layer = mapboxMap.getLayerAs("my-layer")) == null) {
-      Timber.i("Adding layer");
-      layer = new LineLayer("my-layer", "composite");
-      layer.setSourceLayer("composite");
-      mapboxMap.addLayer(layer);
-      //Layer reference is now stale, get new reference
-      layer = mapboxMap.getLayerAs("my-layer");
-    }
     Timber.i("line-miter-limit");
     assertNotNull(layer);
 
@@ -138,17 +104,6 @@ public class LineLayerTest extends BaseStyleTest {
   @Test
   public void testLineRoundLimit() {
     checkViewIsDisplayed(R.id.mapView);
-
-    mapboxMap = rule.getActivity().getMapboxMap();
-
-    if ((layer = mapboxMap.getLayerAs("my-layer")) == null) {
-      Timber.i("Adding layer");
-      layer = new LineLayer("my-layer", "composite");
-      layer.setSourceLayer("composite");
-      mapboxMap.addLayer(layer);
-      //Layer reference is now stale, get new reference
-      layer = mapboxMap.getLayerAs("my-layer");
-    }
     Timber.i("line-round-limit");
     assertNotNull(layer);
 
@@ -160,17 +115,6 @@ public class LineLayerTest extends BaseStyleTest {
   @Test
   public void testLineOpacity() {
     checkViewIsDisplayed(R.id.mapView);
-
-    mapboxMap = rule.getActivity().getMapboxMap();
-
-    if ((layer = mapboxMap.getLayerAs("my-layer")) == null) {
-      Timber.i("Adding layer");
-      layer = new LineLayer("my-layer", "composite");
-      layer.setSourceLayer("composite");
-      mapboxMap.addLayer(layer);
-      //Layer reference is now stale, get new reference
-      layer = mapboxMap.getLayerAs("my-layer");
-    }
     Timber.i("line-opacity");
     assertNotNull(layer);
 
@@ -182,17 +126,6 @@ public class LineLayerTest extends BaseStyleTest {
   @Test
   public void testLineColor() {
     checkViewIsDisplayed(R.id.mapView);
-
-    mapboxMap = rule.getActivity().getMapboxMap();
-
-    if ((layer = mapboxMap.getLayerAs("my-layer")) == null) {
-      Timber.i("Adding layer");
-      layer = new LineLayer("my-layer", "composite");
-      layer.setSourceLayer("composite");
-      mapboxMap.addLayer(layer);
-      //Layer reference is now stale, get new reference
-      layer = mapboxMap.getLayerAs("my-layer");
-    }
     Timber.i("line-color");
     assertNotNull(layer);
 
@@ -204,17 +137,6 @@ public class LineLayerTest extends BaseStyleTest {
   @Test
   public void testLineColorAsInt() {
     checkViewIsDisplayed(R.id.mapView);
-
-    mapboxMap = rule.getActivity().getMapboxMap();
-
-    if ((layer = mapboxMap.getLayerAs("my-layer")) == null) {
-      Timber.i("Adding layer");
-      layer = new LineLayer("my-layer", "composite");
-      layer.setSourceLayer("composite");
-      mapboxMap.addLayer(layer);
-      //Layer reference is now stale, get new reference
-      layer = mapboxMap.getLayerAs("my-layer");
-    }
     Timber.i("line-color");
     assertNotNull(layer);
 
@@ -226,17 +148,6 @@ public class LineLayerTest extends BaseStyleTest {
   @Test
   public void testLineTranslate() {
     checkViewIsDisplayed(R.id.mapView);
-
-    mapboxMap = rule.getActivity().getMapboxMap();
-
-    if ((layer = mapboxMap.getLayerAs("my-layer")) == null) {
-      Timber.i("Adding layer");
-      layer = new LineLayer("my-layer", "composite");
-      layer.setSourceLayer("composite");
-      mapboxMap.addLayer(layer);
-      //Layer reference is now stale, get new reference
-      layer = mapboxMap.getLayerAs("my-layer");
-    }
     Timber.i("line-translate");
     assertNotNull(layer);
 
@@ -248,17 +159,6 @@ public class LineLayerTest extends BaseStyleTest {
   @Test
   public void testLineTranslateAnchor() {
     checkViewIsDisplayed(R.id.mapView);
-
-    mapboxMap = rule.getActivity().getMapboxMap();
-
-    if ((layer = mapboxMap.getLayerAs("my-layer")) == null) {
-      Timber.i("Adding layer");
-      layer = new LineLayer("my-layer", "composite");
-      layer.setSourceLayer("composite");
-      mapboxMap.addLayer(layer);
-      //Layer reference is now stale, get new reference
-      layer = mapboxMap.getLayerAs("my-layer");
-    }
     Timber.i("line-translate-anchor");
     assertNotNull(layer);
 
@@ -270,17 +170,6 @@ public class LineLayerTest extends BaseStyleTest {
   @Test
   public void testLineWidth() {
     checkViewIsDisplayed(R.id.mapView);
-
-    mapboxMap = rule.getActivity().getMapboxMap();
-
-    if ((layer = mapboxMap.getLayerAs("my-layer")) == null) {
-      Timber.i("Adding layer");
-      layer = new LineLayer("my-layer", "composite");
-      layer.setSourceLayer("composite");
-      mapboxMap.addLayer(layer);
-      //Layer reference is now stale, get new reference
-      layer = mapboxMap.getLayerAs("my-layer");
-    }
     Timber.i("line-width");
     assertNotNull(layer);
 
@@ -292,17 +181,6 @@ public class LineLayerTest extends BaseStyleTest {
   @Test
   public void testLineGapWidth() {
     checkViewIsDisplayed(R.id.mapView);
-
-    mapboxMap = rule.getActivity().getMapboxMap();
-
-    if ((layer = mapboxMap.getLayerAs("my-layer")) == null) {
-      Timber.i("Adding layer");
-      layer = new LineLayer("my-layer", "composite");
-      layer.setSourceLayer("composite");
-      mapboxMap.addLayer(layer);
-      //Layer reference is now stale, get new reference
-      layer = mapboxMap.getLayerAs("my-layer");
-    }
     Timber.i("line-gap-width");
     assertNotNull(layer);
 
@@ -314,17 +192,6 @@ public class LineLayerTest extends BaseStyleTest {
   @Test
   public void testLineOffset() {
     checkViewIsDisplayed(R.id.mapView);
-
-    mapboxMap = rule.getActivity().getMapboxMap();
-
-    if ((layer = mapboxMap.getLayerAs("my-layer")) == null) {
-      Timber.i("Adding layer");
-      layer = new LineLayer("my-layer", "composite");
-      layer.setSourceLayer("composite");
-      mapboxMap.addLayer(layer);
-      //Layer reference is now stale, get new reference
-      layer = mapboxMap.getLayerAs("my-layer");
-    }
     Timber.i("line-offset");
     assertNotNull(layer);
 
@@ -336,17 +203,6 @@ public class LineLayerTest extends BaseStyleTest {
   @Test
   public void testLineBlur() {
     checkViewIsDisplayed(R.id.mapView);
-
-    mapboxMap = rule.getActivity().getMapboxMap();
-
-    if ((layer = mapboxMap.getLayerAs("my-layer")) == null) {
-      Timber.i("Adding layer");
-      layer = new LineLayer("my-layer", "composite");
-      layer.setSourceLayer("composite");
-      mapboxMap.addLayer(layer);
-      //Layer reference is now stale, get new reference
-      layer = mapboxMap.getLayerAs("my-layer");
-    }
     Timber.i("line-blur");
     assertNotNull(layer);
 
@@ -358,17 +214,6 @@ public class LineLayerTest extends BaseStyleTest {
   @Test
   public void testLineDasharray() {
     checkViewIsDisplayed(R.id.mapView);
-
-    mapboxMap = rule.getActivity().getMapboxMap();
-
-    if ((layer = mapboxMap.getLayerAs("my-layer")) == null) {
-      Timber.i("Adding layer");
-      layer = new LineLayer("my-layer", "composite");
-      layer.setSourceLayer("composite");
-      mapboxMap.addLayer(layer);
-      //Layer reference is now stale, get new reference
-      layer = mapboxMap.getLayerAs("my-layer");
-    }
     Timber.i("line-dasharray");
     assertNotNull(layer);
 
@@ -380,17 +225,6 @@ public class LineLayerTest extends BaseStyleTest {
   @Test
   public void testLinePattern() {
     checkViewIsDisplayed(R.id.mapView);
-
-    mapboxMap = rule.getActivity().getMapboxMap();
-
-    if ((layer = mapboxMap.getLayerAs("my-layer")) == null) {
-      Timber.i("Adding layer");
-      layer = new LineLayer("my-layer", "composite");
-      layer.setSourceLayer("composite");
-      mapboxMap.addLayer(layer);
-      //Layer reference is now stale, get new reference
-      layer = mapboxMap.getLayerAs("my-layer");
-    }
     Timber.i("line-pattern");
     assertNotNull(layer);
 
