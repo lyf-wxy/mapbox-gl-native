@@ -11,9 +11,9 @@
 #include <QPointF>
 #include <QQmlListProperty>
 #include <QQuickFramebufferObject>
+#include <QQuickItem>
 
 class QDeclarativeGeoServiceProvider;
-class QQuickItem;
 class QQuickMapboxGLRenderer;
 
 class Q_DECL_EXPORT QQuickMapboxGL : public QQuickFramebufferObject
