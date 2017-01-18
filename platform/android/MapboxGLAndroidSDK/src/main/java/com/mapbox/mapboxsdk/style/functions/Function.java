@@ -199,6 +199,15 @@ public class Function<V, T> {
     return stops;
   }
 
+
+  /**
+   * @return return the {@link TYPE} String
+   */
+  @TYPE
+  public String getType() {
+    return type;
+  }
+
   public Map<String, Object> toValueObject() {
     Object[] stopsValue = new Object[stops.length];
 
