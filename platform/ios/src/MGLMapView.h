@@ -28,7 +28,7 @@ extern const CGFloat MGLMapViewDecelerationRateNormal;
 /** A fast deceleration rate for a map view. */
 extern const CGFloat MGLMapViewDecelerationRateFast;
 
-/** Disables deceleration in a map view. */
+/** Disables decleration in a map view. */
 extern const CGFloat MGLMapViewDecelerationRateImmediate;
 
 /**

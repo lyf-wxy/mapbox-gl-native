@@ -28,8 +28,8 @@ NS_ASSUME_NONNULL_BEGIN
  convenient to use an `MGLPointCollection`, `MGLMultiPolyline`, or
  `MGLMultiPolygon` object, respectively.
  
- A shape collection is known as a 
- <a href="https://tools.ietf.org/html/rfc7946#section-3.1.8">GeometryCollection</a> 
+ A multipolyline is known as a
+ <a href="https://tools.ietf.org/html/rfc7946#section-3.1.8">GeometryCollection</a>
  geometry in GeoJSON.
  */
 @interface MGLShapeCollection : MGLShape
