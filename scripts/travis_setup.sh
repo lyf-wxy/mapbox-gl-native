@@ -55,15 +55,6 @@ function mapbox_start_xvfb {
 
 export -f mapbox_start_xvfb
 
-function mapbox_export_mesa_library_path {
-    # Install and set up to load a more recent version of mesa
-    mapbox_time "install_mesa" \
-    mason install mesa 13.0.0-glx
-    export LD_LIBRARY_PATH="`mason prefix mesa 13.0.0-glx`/lib:${LD_LIBRARY_PATH:-}"
-}
-
-export -f mapbox_export_mesa_library_path
-
 # Install and set up to load awscli
 pip install --user awscli
 export PATH="`python -m site --user-base`/bin:${PATH}"

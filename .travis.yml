@@ -7,7 +7,7 @@ addons:
     sources:
       - &common_sources [ 'ubuntu-toolchain-r-test', 'george-edison55-precise-backports' ]
     packages:
-      - &common_packages [ 'libllvm3.8v4', 'cmake', 'cmake-data' ]
+      - &common_packages [ 'libllvm3.8v4', 'cmake', 'cmake-data', 'libosmesa6-dev', 'libegl1-mesa-dev', 'libgl1-mesa-dev' ]
       - &clang38_packages [ 'clang-3.8', 'libstdc++-5-dev', 'libstdc++6' ]
       - &gcc5_packages [ 'gcc-5', 'g++-5' ]
       - &egl_packages [ 'libgles2-mesa-dev', 'libgbm-dev' ]
@@ -193,7 +193,6 @@ matrix:
       addons: *qt4
       before_script:
         - mapbox_start_xvfb
-        - mapbox_export_mesa_library_path
       script:
         - make qt-app
         - LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libjemalloc.so make run-qt-test-Memory.*:*.Load
@@ -208,7 +207,6 @@ matrix:
       addons: *qt5
       before_script:
         - mapbox_start_xvfb
-        - mapbox_export_mesa_library_path
       script:
         - make qt-app
         - make qt-qml-app
